@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>imagename</key>
+		<string>0-fine-day</string>
+		<key>code</key>
+		<string>100</string>
+	</dict>
+	<dict>
+		<key>imagename</key>
+		<string>1-cloudy-day</string>
+		<key>code</key>
+		<string>101</string>
+	</dict>
+	<dict>
+		<key>imagename</key>
+		<string>2-shade</string>
+		<key>code</key>
+		<string>104</string>
+	</dict>
+	<dict>
+		<key>imagename</key>
+		<string>4-thunder-shower</string>
+		<key>code</key>
+		<string>300</string>
+	</dict>
+	<dict>
+		<key>imagename</key>
+		<string>7-light-rain</string>
+		<key>code</key>
+		<string>305</string>
+	</dict>
+	<dict>
+		<key>imagename</key>
+		<string>8-middle-rain</string>
+		<key>code</key>
+		<string>306</string>
+	</dict>
+	<dict>
+		<key>imagename</key>
+		<string>9-heavy-rain</string>
+		<key>code</key>
+		<string>307</string>
+	</dict>
+</array>
+</plist>
