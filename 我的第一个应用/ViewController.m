@@ -8,18 +8,26 @@
 
 #define apikey @"1457ac3d0f915dfd1d64757c49d811ff"
 #import "MBProgressHUD+MJ.h"
-
+#import "meizi.h"
 #import "pageVC.h"
 #import "chooseVc.h"
-
-
+#import "FMDB.h"
+#import "zhouweimeizi.h"
+//#import <SDWebImage/UIImageView+WebCache.h>
 #import "ViewController.h"
 #import "TableViewController.h"
 #import "chooseVc.h"
-
-@interface ViewController ()<chooseVcdelegate>
+#import "scrollVC.h"
+#import "UIImageView+WebCache.h"
+#import "dituVC.h"
+@interface ViewController ()<chooseVcdelegate, UITextFieldDelegate>
 - (IBAction)btnclick:(id)sender;
-- (IBAction)pushtopageVC;
+//- (IBAction)pushtopageVC;
+@property (weak, nonatomic) IBOutlet UIImageView *imageview;
+@property (nonatomic, copy) NSString *cityname;
+
+
+
 @property (weak, nonatomic) IBOutlet UITextField *serchcity;
 @property (weak, nonatomic) IBOutlet UILabel *returncity;
 @property (weak, nonatomic) IBOutlet UILabel *water;
@@ -27,6 +35,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *wendu;
 @property (nonatomic, strong) NSDictionary *weatherdict;
 @property (weak, nonatomic) IBOutlet UILabel *tianqi;
+@property (nonatomic, strong) NSMutableArray *datas;
+@property (nonatomic, copy) NSString *code;
 
 
 @property (strong, nonatomic) NSArray *plistarray;
@@ -35,9 +45,19 @@
 @implementation ViewController
 
 
+- (NSMutableArray *)datas
+{
+    if (_datas == nil) {
+        _datas = [NSMutableArray array];
+    }
+    return _datas;
+}
+
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
+
     self.serchcity.text = @"beijing";
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     [btn setBackgroundImage:[UIImage imageNamed:@"country-field"] forState:UIControlStateNormal];
@@ -49,7 +69,11 @@
         NSString *city = [[NSUserDefaults standardUserDefaults] objectForKey:@"city"];
         [self getweatherWithcity:city];
     };
-    
+    self.serchcity.returnKeyType = UIReturnKeySend;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"dsad" style:UIBarButtonItemStyleDone target:nil action:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(searchbarendedit) name:@"UITextFieldTextDidEndEditingNotification" object:nil];
+//    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"0-fine-day"]];
+    self.serchcity.delegate = self;
     
 //    self.leftbaritem = [[UIBarButtonItem alloc] initWithCustomView:btn];
 //    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"10-rain-storm"]];
@@ -60,6 +84,11 @@
 //    [self request: httpUrl withHttpArg: httpArg];
 }
 
+
+- (void)searchbarendedit
+{
+    NSLog(@"endedting..");
+}
 
 //"basic": {  //基本信息
 //    "city": "北京",  //城市名称
@@ -91,8 +120,58 @@
 //        "spd": "15" //风速（kmph）
 //    }
 //},
+/**
+ textfiled代理方法，用来监听retuen键的点击
+ 
+*/
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+//    [self.view endEditing:YES];
+    [self.view resignFirstResponder];
+    [self btnclick:nil];
+    return YES;
+}
 
 
+
+- (void)getfromdb
+{
+    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *dbpath = [path stringByAppendingPathComponent:@"cityweather.db"];
+    NSFileManager *manage = [[NSFileManager alloc] init];
+    if([manage fileExistsAtPath:dbpath])
+    {
+    FMDatabase *db = [FMDatabase databaseWithPath:dbpath];
+        if ([db open]) {
+            NSLog(@"get--db成功");
+        }
+    
+    FMResultSet *result = [db executeQuery:@"SELECT City, Weather  FROM CityWeather"];
+        while ([result next]) {
+            NSData *data = [result dataForColumn:@"Weather"];
+            [self.datas addObject:data];
+        }
+    }
+    else
+    {
+        return;
+    }
+    
+}
+
+
+- (void)setupdatabaseWithCithname:(NSString *)name andData:(NSData *)data
+{
+    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *dbpath = [path stringByAppendingPathComponent:@"cityweather.db"];
+    FMDatabase *db = [FMDatabase databaseWithPath:dbpath];
+    if ([db open]) {
+        NSLog(@"db 打开成功");
+        [db executeUpdate:@"CREATE TABLE if not exists CityWeather (City text, Weather blob)"];
+        [db executeUpdate:@"INSERT INTO  CityWeather(City, Weather ) VALUES (?,?)",name, data];
+        
+    }
+}
 
 
 - (NSArray *)plistarray
@@ -102,9 +181,19 @@
         
         _plistarray = [NSArray arrayWithContentsOfFile:path];
     }
+    
     return _plistarray;
 }
 
+
+- (NSString *)transformZhongwenToPinyin:(NSString *)zhongwen
+{
+    
+    CFMutableStringRef string = (__bridge CFMutableStringRef)zhongwen;
+    CFStringTransform(string, NULL, kCFStringTransformMandarinLatin, NO);
+    NSString *hehe = (__bridge NSString *)string;
+    return hehe;
+}
 - (void)setweather;
 {
     
@@ -131,6 +220,7 @@
 - (void)getweatherWithcity:(NSString *)city
 {
 //    self.weatherdict = nil;
+    self.cityname =city;
     [[NSUserDefaults standardUserDefaults] setObject:city forKey:@"city"];
     NSString *httpurl = @"http://apis.baidu.com/heweather/weather/free";
     NSString *fullhttpurl = [NSString stringWithFormat:@"%@?%@", httpurl, city];
@@ -145,15 +235,44 @@
         }else
         {
             NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
+            NSArray *array= dict[@"HeWeather data service 3.0"];
+            self.code = array[0][@"now"][@"cond"][@"code"];
+//            NSLog(@"%@", array[0][@"suggestion"]);
+           NSString *city = array[0][@"basic"][@"city"];
+            [self setupdatabaseWithCithname:city andData:data];
+            
+//            NSURLErrorUnsupportedURL
+            if (dict == nil) {
+                return ;
+            }
             self.weatherdict = dict;
 //            NSLog(@"%@", dict[@"HeWeather data service 3.0"]);
             [self setweather];
             [self setbackgroud];
+            
             [self setuplocalnotification];
            
         }
     }];
     
+}
+
+- (void)setCode:(NSString *)code
+{
+    _code = code;
+    NSString *path = [NSString stringWithFormat:@"http://files.heweather.com/cond_icon/%@.png", code];
+    [self.imageview sd_setImageWithURL:[NSURL URLWithString:path]];
+    
+}
+- (IBAction)chaxundb {
+    
+    [self getfromdb];
+    NSLog(@"%@", self.datas);
+    for (NSData *data in self.datas) {
+            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
+        NSArray *array= dict[@"HeWeather data service 3.0"];
+//        NSLog(@"%@", array);
+    }
 }
 
 - (void)setuplocalnotification
@@ -168,7 +287,7 @@
     NSString *full = [NSString stringWithFormat:@"温度是%@度，天气情况是%@, 空气状况%@, 建议您%@", wendu, tianqi, kongqi, jianyi];
     noti.alertBody = full;
     noti.fireDate = [NSDate dateWithTimeIntervalSinceNow:2];
-//    noti.repeatInterval = 
+//    noti.repeatInterval = 
     noti.applicationIconBadgeNumber = 5;
     [[UIApplication sharedApplication] scheduleLocalNotification:noti];
 }
@@ -180,17 +299,25 @@
     NSString *code = array[0][@"now"][@"cond"][@"code"];
     if (!code) {
         [MBProgressHUD showError:@"没有找到这个城市"];
-#warning gcd的本质问题,什么时候执行哪个，搞不懂啊,
-        [self performSelector:@selector(dismiss) withObject:self afterDelay:3];
+
+        dispatch_after(3, dispatch_get_main_queue(), ^{
+            [MBProgressHUD hideHUD];
+        });
     }
+    
     for (NSDictionary *dict in self.plistarray) {
         if ([dict[@"code"] isEqualToString:code]) {;
-            self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:dict[@"imagename"]]];
+            UIImageView *a = [[UIImageView alloc] initWithFrame:self.view.frame];
+            NSString *str = [NSString stringWithFormat:@"%@.jpg", dict[@"imagename"]];
+            a.image =[UIImage imageNamed:str];
+//            [self.view insertSubview:a belowSubview:self.imageview];
+            self.view.backgroundColor = [UIColor colorWithPatternImage:a.image];
         }
     }
     
     
 }
+
 
 -(void)request: (NSString*)httpUrl withHttpArg: (NSString*)HttpArg  {
     NSString *urlStr = [[NSString alloc]initWithFormat: @"%@?%@", httpUrl, HttpArg];
@@ -213,9 +340,9 @@
 
 - (IBAction)btnclick:(id)sender {
     
-    NSString *temp = [NSString stringWithFormat:@"city=%@", self.serchcity.text];
- 
-    
+    NSString *temp = [NSString stringWithFormat:@"city=%@", [self.serchcity.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+////    NSLog(@"%@", [self.serchcity.text class]);
+//    
     [self getweatherWithcity:temp];
     
 //    [NSThread sleepForTimeInterval:4.0];
@@ -224,6 +351,7 @@
 
 
 
+#pragma 调去别的控制器之前会调用
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -235,6 +363,16 @@
     {
         chooseVc *choose = segue.destinationViewController;
         choose.delegate =self;
+    }
+    else if ([segue.identifier isEqualToString:@"scroll"])
+    {
+        scrollVC *vc = segue.destinationViewController;
+        vc.cityname =self.cityname;
+    }
+    else if ([segue.identifier isEqualToString:@"scroll"])
+    {
+        dituVC *vc = segue.destinationViewController;
+        vc.cityname =self.cityname;
     }
 
 
@@ -257,8 +395,11 @@
 - (void)choosecitywithstring:(NSString *)string
 {
     NSString *temp = [NSString stringWithFormat:@"city=%@", string];
-    [self getweatherWithcity:temp];
+
+    [self getweatherWithcity:[temp stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
 }
+
+
 
 
 @end

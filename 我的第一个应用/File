@@ -1,0 +1,130 @@
+初始化周边雷达功能
+
+在使用位置信息上传和检索周边位置信息之前，需要对周边雷达功能模块进行初始化操作。初始化的核心代码如下：
+
+1、周边雷达管理类使用了单例模式，并且通过引用计数的方式管理这个实例。可以使用使用下边的方法获取实例（引用计数加1）：
+
+BMKRadarManager *_radarManager = [BMKRadarManagergetRadarManagerInstance];
+在不需要时，通过下边的方法使引用计数减1
+[BMKRadarManagerreleaseRadarManagerInstance];
+
+2、在上传和拉取位置信息前，需要设置userid，否则会自动生成.设置userid的代码如下：
+
+[_radarManager.userId = @"baidu_mapsdk_radarid"];
+
+3、通过添加radar delegate获取自动上传时的位置信息，以及获得雷达操作结果，代码如下：
+
+[_radarManageraddRadarManagerDelegate:self];//添加radar delegate
+
+在不需要时，需要移除radar delegate，否则会影响内存的释放。代码如下：
+
+[_radarManagerremoveRadarManagerDelegate:self];//不用需移除，否则影响内存释放
+
+位置信息上传
+
+周边雷达功能模块，支持将用户的位置等信息上传到百度LBS云服务，从而实现应用内部及应用之间的位置信息查看。
+
+目前支持单次位置信息上传和位置信息连续自动上传两种模式。
+
+单次位置信息上传的核心代码如下：
+
+//构造我的位置信息
+BMKRadarUploadInfo *myinfo = [[BMKRadarUploadInfoalloc] init];
+myinfo.extInfo = @"hello,world";//扩展信息
+myinfo.pt = CLLocationCoordinate2DMake(39.916, 116.404);//我的地理坐标
+//上传我的位置信息
+BOOL res = [_radarManageruploadInfoRequest:myinfo];
+if (res) {
+NSLog(@"upload 成功");
+} else {
+NSLog(@"upload 失败");
+}
+
+位置信息连续自动上传的核心代码如下：
+
+//启动自动上传用户位置信息,需要实现getRadarAutoUploadInfo获取我的位置信息
+[_radarManagerstartAutoUpload:5];
+
+周边位置检索
+
+利用周边雷达功能，可实现周边（处于同一个周边雷达关系内）用户位置信息检索的能力。 检索过程支持距离、时间等约束条件；返回结果支持按照距离、时间远近的排序。
+
+第一步，发起检索请求，核心代码如下：
+
+BMKRadarNearbySearchOption *option = [[BMKRadarNearbySearchOptionalloc] init]
+;
+option.radius = 8000;//检索半径
+option.sortType = BMK_RADAR_SORT_TYPE_DISTANCE_FROM_NEAR_TO_FAR;//排序方式
+option.centerPt = _CLLocationCoordinate2DMake(39.916, 116.404);//检索中心点
+//发起检索
+BOOL res = [_radarManagergetRadarNearbySearchRequest:option];
+if (res) {
+NSLog(@"get 成功");
+} else {
+NSLog(@"get 失败");
+}
+
+第二步，实现BMKRadarManagerDelegate回调方法获取结果，核心代码如下：
+
+- (void)onGetRadarNearbySearchResult:(BMKRadarNearbyResult *)result error:(BMKRadarErrorCode)error {
+NSLog(@"onGetRadarNearbySearchResult  %d", error);
+if (error == BMK_RADAR_NO_ERROR) {
+}
+}
+
+
+@property (nonatomic, strong) NSString* userId;
+///地址坐标
+@property (nonatomic, assign) CLLocationCoordinate2D pt;
+///距离
+@property (nonatomic, assign) NSUInteger distance;
+///扩展信息
+@property (nonatomic, strong) NSString* extInfo;
+///设备类型
+@property (nonatomic, strong) NSString* mobileType;
+///设备系统
+@property (nonatomic, strong) NSString* osType;
+///时间戳
+@property (nonatomic, assign) NSTimeInterval timeStamp;
+
+
+(id)init {
+　	self = [super init];
+　	if(self){
+　　_search = [[BMKSearch alloc]init];
+　　_search2 = [[BMKSearch alloc]init];
+}
+　	return self;
+}
+-(void)viewWillAppear:(BOOL)animated {
+　	_search.delegate = self;
+　	_search2.delegate = self;
+}
+-(void)viewWillDisappear:(BOOL)animated {
+　	_search.delegate = nil;
+　	_search2.delegate = nil;
+}-(void)onClickSearchButton {
+　	BOOL flag = [_search poiSearchInCity:@"北京" withKey:@"餐厅" pageIndex:0];
+　	if (flag) {
+　　	NSLog(@"search success.");
+　	}
+　	else{
+　　	NSLog(@"search failed!");
+　	}
+　	BOOL flag2 = [_search2 poiSearchInCity:@"北京" withKey:@"美容" pageIndex:0];
+　	if (flag2) {
+　　	NSLog(@"search2 success.");
+　	}
+　	else{
+　　	NSLog(@"search2 failed!");
+　	}
+}
+
+- (void)onGetPoiResult:(BMKSearch*)searcher result:(NSArray*)poiResultList searchType:(int)type errorCode:(int)error {
+　if(searcher==_search){
+　　	NSLog(@"这是_search进行搜索后返回的搜索结果");
+　}
+　else if(searcher==_search2){
+　　	NSLog(@"这是_search2进行搜索后返回的搜索结果");
+　}
+}

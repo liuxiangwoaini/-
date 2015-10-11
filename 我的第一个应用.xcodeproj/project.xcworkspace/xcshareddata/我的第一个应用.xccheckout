@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>622C2C9F-D6AA-4789-B6A2-722C885FE033</string>
+	<key>IDESourceControlProjectName</key>
+	<string>我的第一个应用</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>23AB01B5F866AEBACB513963C9DB9AB480B4B048</key>
+		<string>https://github.com/liuxiangwoaini/-.git</string>
+		<key>2A8CC76D0984F5186F869B6CBF35034B58A5ACD9</key>
+		<string>https://github.com/CoderMJLee/MJRefresh.git</string>
+		<key>E28E36D423EC87798E52E2BF482E9F7A1E6479D6</key>
+		<string>https://github.com/rs/SDWebImage.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>我的第一个应用.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>23AB01B5F866AEBACB513963C9DB9AB480B4B048</key>
+		<string>../..</string>
+		<key>2A8CC76D0984F5186F869B6CBF35034B58A5ACD9</key>
+		<string>../../../Documents/MJRefresh</string>
+		<key>E28E36D423EC87798E52E2BF482E9F7A1E6479D6</key>
+		<string>../../../Documents/SDWebImage</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/liuxiangwoaini/-.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>23AB01B5F866AEBACB513963C9DB9AB480B4B048</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>23AB01B5F866AEBACB513963C9DB9AB480B4B048</string>
+			<key>IDESourceControlWCCName</key>
+			<string>%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%BA%94%E7%94%A8</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2A8CC76D0984F5186F869B6CBF35034B58A5ACD9</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MJRefresh</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E28E36D423EC87798E52E2BF482E9F7A1E6479D6</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SDWebImage</string>
+		</dict>
+	</array>
+</dict>
+</plist>

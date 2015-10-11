@@ -7,6 +7,7 @@
 //
 
 #import "TableViewCell.h"
+
 @interface TableViewCell()
 @property (weak, nonatomic) IBOutlet UILabel *time;
 @property (weak, nonatomic) IBOutlet UILabel *tianqi;
