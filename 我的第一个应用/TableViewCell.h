@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol tabeleviewCelldelegate <NSObject>
+
+@optional
+- (void)cellbtncliclWithstring:(NSString *)str;
+
+@end
+
+
 @interface TableViewCell : UITableViewCell
 @property (nonatomic, strong) NSDictionary *array;
+@property (nonatomic,weak) id<tabeleviewCelldelegate> delegate;
 @end

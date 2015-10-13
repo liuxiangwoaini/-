@@ -20,12 +20,17 @@
 #import "scrollVC.h"
 #import "UIImageView+WebCache.h"
 #import "dituVC.h"
+#import "userzhuceVC.h"
+#import "dengluVC.h"
+#import "xuanzeVC.h"
+#import "liulanqiVC.h"
 @interface ViewController ()<chooseVcdelegate, UITextFieldDelegate>
 - (IBAction)btnclick:(id)sender;
 //- (IBAction)pushtopageVC;
 @property (weak, nonatomic) IBOutlet UIImageView *imageview;
 @property (nonatomic, copy) NSString *cityname;
 
+- (IBAction)liulanqi;
 
 
 @property (weak, nonatomic) IBOutlet UITextField *serchcity;
@@ -59,18 +64,18 @@
     [super viewDidLoad];
 
     self.serchcity.text = @"beijing";
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [btn setBackgroundImage:[UIImage imageNamed:@"country-field"] forState:UIControlStateNormal];
-    [btn setBackgroundImage:[UIImage imageNamed:@"country-field"] forState:UIControlStateHighlighted];
-    btn.frame = (CGRect){0,0,btn.currentBackgroundImage.size};
+//    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [btn setBackgroundImage:[UIImage imageNamed:@"country-field"] forState:UIControlStateNormal];
+//    [btn setBackgroundImage:[UIImage imageNamed:@"country-field"] forState:UIControlStateHighlighted];
+//    btn.frame = (CGRect){0,0,btn.currentBackgroundImage.size};
 //    [btn addTarget:self action:@selector(chooseVC) forControlEvents:UIControlEventTouchDown];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"用户" style:UIBarButtonItemStyleDone target:self action:@selector(yonghu)];
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"city"]) {
         NSString *city = [[NSUserDefaults standardUserDefaults] objectForKey:@"city"];
         [self getweatherWithcity:city];
     };
     self.serchcity.returnKeyType = UIReturnKeySend;
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"dsad" style:UIBarButtonItemStyleDone target:nil action:nil];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"登陆" style:UIBarButtonItemStyleDone target:self action:@selector(denglu)];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(searchbarendedit) name:@"UITextFieldTextDidEndEditingNotification" object:nil];
 //    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"0-fine-day"]];
     self.serchcity.delegate = self;
@@ -82,8 +87,26 @@
 //    NSString *httpUrl = @"http://apis.baidu.com/heweather/weather/free";
 //    NSString *httpArg = @"city=beijing";
 //    [self request: httpUrl withHttpArg: httpArg];
+    [self daorutupian];
+}
+- (void)daorutupian
+{
+    UIImage *ima1 = [UIImage imageNamed:@"2.jpg"];
+    UIImage *ima2 = [UIImage imageNamed:@"3.jpg"];
+    UIImageWriteToSavedPhotosAlbum(ima1, nil, nil, nil);
+     UIImageWriteToSavedPhotosAlbum(ima2, nil, nil, nil);
 }
 
+- (void)yonghu
+{
+    dengluVC *vc = [[dengluVC alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+- (void)denglu
+{
+    xuanzeVC *xuan = [[xuanzeVC alloc] init];
+    [self.navigationController pushViewController:xuan animated:YES];
+}
 
 - (void)searchbarendedit
 {
@@ -402,4 +425,8 @@
 
 
 
+- (IBAction)liulanqi {
+    liulanqiVC *liu = [[liulanqiVC alloc] init];
+    [self.navigationController pushViewController:liu animated:YES];
+}
 @end

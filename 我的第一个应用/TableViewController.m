@@ -9,7 +9,7 @@
 #import "TableViewController.h"
 #import "TableViewCell.h"
 #import "MJRefresh.h"
-@interface TableViewController ()
+@interface TableViewController ()<tabeleviewCelldelegate>
 @property (nonatomic, strong) NSMutableArray *muarray;
 @end
 
@@ -76,21 +76,47 @@
     static NSString *ID = @"cell";
     
     TableViewCell *Cell= [tableView dequeueReusableCellWithIdentifier:ID];
+    
     if (Cell == nil) {
         Cell = [[[NSBundle mainBundle] loadNibNamed:@"TableViewCell" owner:nil options:nil] lastObject];
         
         
     }
+    Cell.transform = CGAffineTransformIdentity;
     Cell.tag = indexPath.row;
-    
+    Cell.delegate = self;
     Cell.array = self.muarray[indexPath.row];
+//    Cell.array = @[@"asdas", @"dawdas", @"asdas", @"dawdas",@"asdas", @"dawdas",];
+#warning 用来递归打印所有子视图的私有法方法
+//#ifdef DEBUG
+//    NSLog(@"Cell recursive description:\n\n%@\n\n", [Cell performSelector:@selector(recursiveDescription)]);
+//#endif
     return Cell;
 }
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self.muarray removeObjectAtIndex:indexPath.row];
-    [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationTop];
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        UITableViewCell *Cell = [tableView cellForRowAtIndexPath:indexPath];
+        
+        [self.muarray removeObjectAtIndex:indexPath.row];
+
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationTop];
+    }else
+    {
+        NSLog(@"not delete");
+    }
+
 }
 
+//- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    return NO;
+//}
+
+- (void)cellbtncliclWithstring:(NSString *)str
+{
+    NSLog(@"%@", str);
+}
 
 @end

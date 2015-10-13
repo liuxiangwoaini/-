@@ -50,6 +50,10 @@
 		2289C9121BC2900B00124A29 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2289C9111BC2900B00124A29 /* OpenGLES.framework */; };
 		2289C9141BC2902100124A29 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2289C9131BC2902100124A29 /* CoreGraphics.framework */; };
 		2289C9161BC2902E00124A29 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2289C9151BC2902E00124A29 /* Security.framework */; };
+		229A250F1BCCDF71001CADA9 /* AVOSCloudIM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229A250E1BCCDF71001CADA9 /* AVOSCloudIM.framework */; };
+		229A25111BCCDF80001CADA9 /* AVOSCloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229A25101BCCDF80001CADA9 /* AVOSCloud.framework */; };
+		229A25151BCCE5BD001CADA9 /* dengluVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A25131BCCE5BD001CADA9 /* dengluVC.m */; };
+		229A25161BCCE5BD001CADA9 /* dengluVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 229A25141BCCE5BD001CADA9 /* dengluVC.xib */; };
 		229C338F1BC4AFE0009C63B5 /* area.plist in Resources */ = {isa = PBXBuildFile; fileRef = 229C338E1BC4AFE0009C63B5 /* area.plist */; };
 		229C33911BC4E9CA009C63B5 /* citydict.plist in Resources */ = {isa = PBXBuildFile; fileRef = 229C33901BC4E9CA009C63B5 /* citydict.plist */; };
 		229C33941BC4EB14009C63B5 /* citychoose.m in Sources */ = {isa = PBXBuildFile; fileRef = 229C33931BC4EB14009C63B5 /* citychoose.m */; };
@@ -115,12 +119,29 @@
 		22A63B891BC134BE00D410D8 /* lifeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22A63B871BC134BE00D410D8 /* lifeCell.xib */; };
 		22A63B8C1BC1398100D410D8 /* lifeitem.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A63B8B1BC1398100D410D8 /* lifeitem.m */; };
 		22A647211BB95C0C002A0C54 /* chooseVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A647201BB95C0C002A0C54 /* chooseVc.m */; };
+		22A8E3891BCB76F2004FAFB7 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22A8E3881BCB76F2004FAFB7 /* MobileCoreServices.framework */; };
+		22A8E38B1BCB76FD004FAFB7 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22A8E38A1BCB76FD004FAFB7 /* CoreTelephony.framework */; };
+		22A8E38D1BCB7714004FAFB7 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 22A8E38C1BCB7714004FAFB7 /* libicucore.dylib */; };
 		22A9ABA81BC7C84000785333 /* userzhuceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A9ABA61BC7C84000785333 /* userzhuceVC.m */; };
 		22A9ABA91BC7C84000785333 /* userzhuceVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22A9ABA71BC7C84000785333 /* userzhuceVC.xib */; };
 		22BD410A1BC372A900B09985 /* BMannotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BD41091BC372A900B09985 /* BMannotation.m */; };
 		22D2EC8B1BC29778003DD595 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22D2EC8A1BC29778003DD595 /* SystemConfiguration.framework */; };
 		22D2EC921BC297D8003DD595 /* liuxianug.mm in Sources */ = {isa = PBXBuildFile; fileRef = 22D2EC911BC297D8003DD595 /* liuxianug.mm */; };
 		22D2EC941BC29854003DD595 /* mapapi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 22D2EC931BC29854003DD595 /* mapapi.bundle */; };
+		22FC268B1BCCED4F00865D91 /* xuanzeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FC26891BCCED4F00865D91 /* xuanzeVC.m */; };
+		22FC268C1BCCED4F00865D91 /* xuanzeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22FC268A1BCCED4F00865D91 /* xuanzeVC.xib */; };
+		22FC26901BCCEE6000865D91 /* denglujiemianVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FC268E1BCCEE6000865D91 /* denglujiemianVC.m */; };
+		22FC26911BCCEE6000865D91 /* denglujiemianVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22FC268F1BCCEE6000865D91 /* denglujiemianVC.xib */; };
+		22FC26951BCCF96400865D91 /* zhaohuimimaVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FC26931BCCF96400865D91 /* zhaohuimimaVC.m */; };
+		22FC26961BCCF96400865D91 /* zhaohuimimaVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22FC26941BCCF96400865D91 /* zhaohuimimaVC.xib */; };
+		22FC269A1BCD111400865D91 /* xiugaimimaVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FC26981BCD111400865D91 /* xiugaimimaVC.m */; };
+		22FC269B1BCD111400865D91 /* xiugaimimaVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22FC26991BCD111400865D91 /* xiugaimimaVC.xib */; };
+		22FC269F1BCD15A700865D91 /* chongzhimimaVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FC269D1BCD15A700865D91 /* chongzhimimaVC.m */; };
+		22FC26A01BCD15A700865D91 /* chongzhimimaVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22FC269E1BCD15A700865D91 /* chongzhimimaVC.xib */; };
+		22FC26A41BCD19CB00865D91 /* chongzimimaVC1.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FC26A21BCD19CB00865D91 /* chongzimimaVC1.m */; };
+		22FC26A51BCD19CB00865D91 /* chongzimimaVC1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22FC26A31BCD19CB00865D91 /* chongzimimaVC1.xib */; };
+		22FC26A91BCD2AF200865D91 /* liulanqiVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FC26A71BCD2AF200865D91 /* liulanqiVC.m */; };
+		22FC26AA1BCD2AF200865D91 /* liulanqiVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22FC26A81BCD2AF200865D91 /* liulanqiVC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -196,6 +217,11 @@
 		2289C9111BC2900B00124A29 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		2289C9131BC2902100124A29 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		2289C9151BC2902E00124A29 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		229A250E1BCCDF71001CADA9 /* AVOSCloudIM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AVOSCloudIM.framework; sourceTree = "<group>"; };
+		229A25101BCCDF80001CADA9 /* AVOSCloud.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AVOSCloud.framework; sourceTree = "<group>"; };
+		229A25121BCCE5BD001CADA9 /* dengluVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dengluVC.h; sourceTree = "<group>"; };
+		229A25131BCCE5BD001CADA9 /* dengluVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dengluVC.m; sourceTree = "<group>"; };
+		229A25141BCCE5BD001CADA9 /* dengluVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = dengluVC.xib; sourceTree = "<group>"; };
 		229C338E1BC4AFE0009C63B5 /* area.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = area.plist; sourceTree = "<group>"; };
 		229C33901BC4E9CA009C63B5 /* citydict.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = citydict.plist; sourceTree = "<group>"; };
 		229C33921BC4EB14009C63B5 /* citychoose.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = citychoose.h; sourceTree = "<group>"; };
@@ -316,6 +342,9 @@
 		22A63B8B1BC1398100D410D8 /* lifeitem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = lifeitem.m; sourceTree = "<group>"; };
 		22A6471F1BB95C0C002A0C54 /* chooseVc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chooseVc.h; sourceTree = "<group>"; };
 		22A647201BB95C0C002A0C54 /* chooseVc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = chooseVc.m; sourceTree = "<group>"; };
+		22A8E3881BCB76F2004FAFB7 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		22A8E38A1BCB76FD004FAFB7 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		22A8E38C1BCB7714004FAFB7 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		22A9ABA51BC7C84000785333 /* userzhuceVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = userzhuceVC.h; sourceTree = "<group>"; };
 		22A9ABA61BC7C84000785333 /* userzhuceVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = userzhuceVC.m; sourceTree = "<group>"; };
 		22A9ABA71BC7C84000785333 /* userzhuceVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = userzhuceVC.xib; sourceTree = "<group>"; };
@@ -324,6 +353,27 @@
 		22D2EC8A1BC29778003DD595 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		22D2EC911BC297D8003DD595 /* liuxianug.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = liuxianug.mm; sourceTree = "<group>"; };
 		22D2EC931BC29854003DD595 /* mapapi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = mapapi.bundle; sourceTree = "<group>"; };
+		22FC26881BCCED4F00865D91 /* xuanzeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xuanzeVC.h; sourceTree = "<group>"; };
+		22FC26891BCCED4F00865D91 /* xuanzeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = xuanzeVC.m; sourceTree = "<group>"; };
+		22FC268A1BCCED4F00865D91 /* xuanzeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = xuanzeVC.xib; sourceTree = "<group>"; };
+		22FC268D1BCCEE6000865D91 /* denglujiemianVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = denglujiemianVC.h; sourceTree = "<group>"; };
+		22FC268E1BCCEE6000865D91 /* denglujiemianVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = denglujiemianVC.m; sourceTree = "<group>"; };
+		22FC268F1BCCEE6000865D91 /* denglujiemianVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = denglujiemianVC.xib; sourceTree = "<group>"; };
+		22FC26921BCCF96400865D91 /* zhaohuimimaVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zhaohuimimaVC.h; sourceTree = "<group>"; };
+		22FC26931BCCF96400865D91 /* zhaohuimimaVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zhaohuimimaVC.m; sourceTree = "<group>"; };
+		22FC26941BCCF96400865D91 /* zhaohuimimaVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = zhaohuimimaVC.xib; sourceTree = "<group>"; };
+		22FC26971BCD111400865D91 /* xiugaimimaVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xiugaimimaVC.h; sourceTree = "<group>"; };
+		22FC26981BCD111400865D91 /* xiugaimimaVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = xiugaimimaVC.m; sourceTree = "<group>"; };
+		22FC26991BCD111400865D91 /* xiugaimimaVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = xiugaimimaVC.xib; sourceTree = "<group>"; };
+		22FC269C1BCD15A700865D91 /* chongzhimimaVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chongzhimimaVC.h; sourceTree = "<group>"; };
+		22FC269D1BCD15A700865D91 /* chongzhimimaVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = chongzhimimaVC.m; sourceTree = "<group>"; };
+		22FC269E1BCD15A700865D91 /* chongzhimimaVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = chongzhimimaVC.xib; sourceTree = "<group>"; };
+		22FC26A11BCD19CB00865D91 /* chongzimimaVC1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chongzimimaVC1.h; sourceTree = "<group>"; };
+		22FC26A21BCD19CB00865D91 /* chongzimimaVC1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = chongzimimaVC1.m; sourceTree = "<group>"; };
+		22FC26A31BCD19CB00865D91 /* chongzimimaVC1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = chongzimimaVC1.xib; sourceTree = "<group>"; };
+		22FC26A61BCD2AF200865D91 /* liulanqiVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = liulanqiVC.h; sourceTree = "<group>"; };
+		22FC26A71BCD2AF200865D91 /* liulanqiVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = liulanqiVC.m; sourceTree = "<group>"; };
+		22FC26A81BCD2AF200865D91 /* liulanqiVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = liulanqiVC.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -331,15 +381,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22A8E38D1BCB7714004FAFB7 /* libicucore.dylib in Frameworks */,
+				22A8E38B1BCB76FD004FAFB7 /* CoreTelephony.framework in Frameworks */,
+				22A8E3891BCB76F2004FAFB7 /* MobileCoreServices.framework in Frameworks */,
 				227BA1AA1BC6C052007D7C88 /* CoreText.framework in Frameworks */,
 				22D2EC8B1BC29778003DD595 /* SystemConfiguration.framework in Frameworks */,
 				2289C9161BC2902E00124A29 /* Security.framework in Frameworks */,
 				2289C9141BC2902100124A29 /* CoreGraphics.framework in Frameworks */,
+				229A250F1BCCDF71001CADA9 /* AVOSCloudIM.framework in Frameworks */,
 				2289C9121BC2900B00124A29 /* OpenGLES.framework in Frameworks */,
 				2289C9101BC28FE800124A29 /* QuartzCore.framework in Frameworks */,
 				221038E21BC211AF00E552CD /* MapKit.framework in Frameworks */,
 				222A2D981BC0D180008F4C33 /* AddressBookUI.framework in Frameworks */,
 				22A11F2C1BC0B26900A29A34 /* libsqlite3.dylib in Frameworks */,
+				229A25111BCCDF80001CADA9 /* AVOSCloud.framework in Frameworks */,
 				22A5FAC81BBBC32200038A3F /* AddressBook.framework in Frameworks */,
 				22A3742B1BC6AF9100FB18B3 /* BaiduMapAPI.framework in Frameworks */,
 				22A5FAC61BBBB7FE00038A3F /* CoreLocation.framework in Frameworks */,
@@ -359,6 +414,11 @@
 		220E88271BB8F26600D89899 = {
 			isa = PBXGroup;
 			children = (
+				229A25101BCCDF80001CADA9 /* AVOSCloud.framework */,
+				22A8E38C1BCB7714004FAFB7 /* libicucore.dylib */,
+				229A250E1BCCDF71001CADA9 /* AVOSCloudIM.framework */,
+				22A8E38A1BCB76FD004FAFB7 /* CoreTelephony.framework */,
+				22A8E3881BCB76F2004FAFB7 /* MobileCoreServices.framework */,
 				227BA1A91BC6C052007D7C88 /* CoreText.framework */,
 				22A3742A1BC6AF9100FB18B3 /* BaiduMapAPI.framework */,
 				22D2EC8A1BC29778003DD595 /* SystemConfiguration.framework */,
@@ -709,6 +769,30 @@
 				22A9ABA51BC7C84000785333 /* userzhuceVC.h */,
 				22A9ABA61BC7C84000785333 /* userzhuceVC.m */,
 				22A9ABA71BC7C84000785333 /* userzhuceVC.xib */,
+				229A25121BCCE5BD001CADA9 /* dengluVC.h */,
+				229A25131BCCE5BD001CADA9 /* dengluVC.m */,
+				229A25141BCCE5BD001CADA9 /* dengluVC.xib */,
+				22FC26881BCCED4F00865D91 /* xuanzeVC.h */,
+				22FC26891BCCED4F00865D91 /* xuanzeVC.m */,
+				22FC268A1BCCED4F00865D91 /* xuanzeVC.xib */,
+				22FC268D1BCCEE6000865D91 /* denglujiemianVC.h */,
+				22FC268E1BCCEE6000865D91 /* denglujiemianVC.m */,
+				22FC268F1BCCEE6000865D91 /* denglujiemianVC.xib */,
+				22FC26921BCCF96400865D91 /* zhaohuimimaVC.h */,
+				22FC26931BCCF96400865D91 /* zhaohuimimaVC.m */,
+				22FC26941BCCF96400865D91 /* zhaohuimimaVC.xib */,
+				22FC26971BCD111400865D91 /* xiugaimimaVC.h */,
+				22FC26981BCD111400865D91 /* xiugaimimaVC.m */,
+				22FC26991BCD111400865D91 /* xiugaimimaVC.xib */,
+				22FC269C1BCD15A700865D91 /* chongzhimimaVC.h */,
+				22FC269D1BCD15A700865D91 /* chongzhimimaVC.m */,
+				22FC269E1BCD15A700865D91 /* chongzhimimaVC.xib */,
+				22FC26A11BCD19CB00865D91 /* chongzimimaVC1.h */,
+				22FC26A21BCD19CB00865D91 /* chongzimimaVC1.m */,
+				22FC26A31BCD19CB00865D91 /* chongzimimaVC1.xib */,
+				22FC26A61BCD2AF200865D91 /* liulanqiVC.h */,
+				22FC26A71BCD2AF200865D91 /* liulanqiVC.m */,
+				22FC26A81BCD2AF200865D91 /* liulanqiVC.xib */,
 			);
 			name = "用户模块";
 			sourceTree = "<group>";
@@ -820,8 +904,12 @@
 			files = (
 				22A522521BB921B0008366D7 /* TableViewCell.xib in Resources */,
 				2259E61F1BC530520079B9C4 /* 7.plist in Resources */,
+				22FC26A01BCD15A700865D91 /* chongzhimimaVC.xib in Resources */,
+				22FC26AA1BCD2AF200865D91 /* liulanqiVC.xib in Resources */,
+				22FC26911BCCEE6000865D91 /* denglujiemianVC.xib in Resources */,
 				22A63B891BC134BE00D410D8 /* lifeCell.xib in Resources */,
 				22D2EC941BC29854003DD595 /* mapapi.bundle in Resources */,
+				22FC269B1BCD111400865D91 /* xiugaimimaVC.xib in Resources */,
 				22A5FB3B1BBC072700038A3F /* MBProgressHUD.bundle in Resources */,
 				220E88441BB8F26600D89899 /* LaunchScreen.xib in Resources */,
 				2259E60C1BC50EF70079B9C4 /* meizicell.xib in Resources */,
@@ -835,6 +923,7 @@
 				220E88411BB8F26600D89899 /* Images.xcassets in Resources */,
 				221FD33C1BC550D900441562 /* searchVC.xib in Resources */,
 				22502AC21BBAB721009192BF /* citys.plist in Resources */,
+				22FC268C1BCCED4F00865D91 /* xuanzeVC.xib in Resources */,
 				22502AC41BBABF80009192BF /* 56.plist in Resources */,
 				2259E6231BC542310079B9C4 /* File in Resources */,
 				2259E61A1BC530520079B9C4 /* 2.plist in Resources */,
@@ -843,6 +932,9 @@
 				2259E5FF1BC500E80079B9C4 /* meizi.plist in Resources */,
 				229C33911BC4E9CA009C63B5 /* citydict.plist in Resources */,
 				22A522561BB93127008366D7 /* tianqiqingkuang.plist in Resources */,
+				22FC26961BCCF96400865D91 /* zhaohuimimaVC.xib in Resources */,
+				229A25161BCCE5BD001CADA9 /* dengluVC.xib in Resources */,
+				22FC26A51BCD19CB00865D91 /* chongzimimaVC1.xib in Resources */,
 				229C338F1BC4AFE0009C63B5 /* area.plist in Resources */,
 				2259E6191BC530520079B9C4 /* 10.plist in Resources */,
 				22A63B141BC10B9C00D410D8 /* MJRefresh.bundle in Resources */,
@@ -870,6 +962,7 @@
 				22A63B761BC1274100D410D8 /* SDWebImageManager.m in Sources */,
 				22A5FB3A1BBC072700038A3F /* MBProgressHUD+MJ.m in Sources */,
 				22A63B1F1BC114CC00D410D8 /* xialaCell.m in Sources */,
+				22FC268B1BCCED4F00865D91 /* xuanzeVC.m in Sources */,
 				22A63B0B1BC10B9C00D410D8 /* MJRefreshAutoGifFooter.m in Sources */,
 				22A5225C1BB954BA008366D7 /* UIImage+resizeimage.m in Sources */,
 				22A63B0E1BC10B9C00D410D8 /* MJRefreshBackGifFooter.m in Sources */,
@@ -886,6 +979,8 @@
 				22A5FB3C1BBC072700038A3F /* MBProgressHUD.m in Sources */,
 				22A63B071BC10B9C00D410D8 /* MJRefreshBackFooter.m in Sources */,
 				22A63B7A1BC1274100D410D8 /* UIImage+MultiFormat.m in Sources */,
+				229A25151BCCE5BD001CADA9 /* dengluVC.m in Sources */,
+				22FC26951BCCF96400865D91 /* zhaohuimimaVC.m in Sources */,
 				22D2EC921BC297D8003DD595 /* liuxianug.mm in Sources */,
 				221038E01BC2106200E552CD /* dituVC.m in Sources */,
 				22A63B7C1BC1274100D410D8 /* UIImageView+HighlightedWebCache.m in Sources */,
@@ -897,6 +992,7 @@
 				2259E6061BC508350079B9C4 /* xiangxiVC.m in Sources */,
 				22A63B881BC134BE00D410D8 /* lifeCell.m in Sources */,
 				221038F81BC22B9400E552CD /* shortdatouzhenmodel.m in Sources */,
+				22FC26A41BCD19CB00865D91 /* chongzimimaVC1.m in Sources */,
 				22A63B721BC1274100D410D8 /* SDWebImageCompat.m in Sources */,
 				221038F21BC22B6900E552CD /* longdatouzhenview.m in Sources */,
 				22A63B181BC10B9C00D410D8 /* UIView+MJExtension.m in Sources */,
@@ -918,6 +1014,7 @@
 				22BD410A1BC372A900B09985 /* BMannotation.m in Sources */,
 				222A2D961BC0CC1A008F4C33 /* scrollVC.m in Sources */,
 				22A63B7D1BC1274100D410D8 /* UIImageView+WebCache.m in Sources */,
+				22FC26A91BCD2AF200865D91 /* liulanqiVC.m in Sources */,
 				22A63B0D1BC10B9C00D410D8 /* MJRefreshAutoStateFooter.m in Sources */,
 				22A63B7E1BC1274100D410D8 /* UIView+WebCacheOperation.m in Sources */,
 				22A11F281BC0B23400A29A34 /* FMDatabasePool.m in Sources */,
@@ -928,13 +1025,16 @@
 				22A63B701BC1274100D410D8 /* NSData+ImageContentType.m in Sources */,
 				221FD33B1BC550D900441562 /* searchVC.m in Sources */,
 				22A63B111BC10B9C00D410D8 /* MJRefreshGifHeader.m in Sources */,
+				22FC26901BCCEE6000865D91 /* denglujiemianVC.m in Sources */,
 				22A63B161BC10B9C00D410D8 /* UIScrollView+MJExtension.m in Sources */,
 				223E648C1BC29964006BFFAD /* mapVC.m in Sources */,
+				22FC269A1BCD111400865D91 /* xiugaimimaVC.m in Sources */,
 				22A11F291BC0B23400A29A34 /* FMDatabaseQueue.m in Sources */,
 				22A63B061BC10B9C00D410D8 /* MJRefreshAutoFooter.m in Sources */,
 				22A63B781BC1274100D410D8 /* UIButton+WebCache.m in Sources */,
 				22A63B741BC1274100D410D8 /* SDWebImageDownloader.m in Sources */,
 				221038EC1BC22AF200E552CD /* meizi.m in Sources */,
+				22FC269F1BCD15A700865D91 /* chongzhimimaVC.m in Sources */,
 				22A63B101BC10B9C00D410D8 /* MJRefreshBackStateFooter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1056,6 +1156,9 @@
 					"$(PROJECT_DIR)",
 					"/Users/liuxiang/Downloads/BaiduMap_IOSSDK_v2.8.1_All/BaiduMap_IOSSDK_v2.8.1_Lib/Release-iphonesimulator",
 					"/Users/liuxiang/Downloads/BaiduMap_IOSSDK_v2.8.1_All/BaiduMap_IOSSDK_v2.8.1_Lib/Release-iphoneos",
+					"/Users/liuxiang/Downloads/avoscloud-ios-sdk-v3.1.4/iOS/release-v3.1.4/AVOSCloud/Static",
+					"/Users/liuxiang/Downloads/avoscloud-ios-sdk-v3.1.4/iOS",
+					"2/release-v3.1.4/AVOSCloudIM/Static",
 				);
 				INFOPLIST_FILE = "我的第一个应用/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -1081,6 +1184,9 @@
 					"$(PROJECT_DIR)",
 					"/Users/liuxiang/Downloads/BaiduMap_IOSSDK_v2.8.1_All/BaiduMap_IOSSDK_v2.8.1_Lib/Release-iphonesimulator",
 					"/Users/liuxiang/Downloads/BaiduMap_IOSSDK_v2.8.1_All/BaiduMap_IOSSDK_v2.8.1_Lib/Release-iphoneos",
+					"/Users/liuxiang/Downloads/avoscloud-ios-sdk-v3.1.4/iOS/release-v3.1.4/AVOSCloud/Static",
+					"/Users/liuxiang/Downloads/avoscloud-ios-sdk-v3.1.4/iOS",
+					"2/release-v3.1.4/AVOSCloudIM/Static",
 				);
 				INFOPLIST_FILE = "我的第一个应用/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;

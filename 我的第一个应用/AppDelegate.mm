@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <AVOSCloud/AVOSCloud.h>
 #define baidumapapikey @"HtFSbGYBNk7reDPWWkjhT43F"
 @interface AppDelegate ()
 
@@ -31,6 +32,10 @@
     if (!ret) {
         NSLog(@"manager start failed!");
     }
+    
+    
+    [AVOSCloud setApplicationId:@"OkjFt7d4ypIQ5srE1WUVSvON"
+                      clientKey:@"U6YuzxfKYDrc8hBJ50obwme2"];
 
  
     return YES;
