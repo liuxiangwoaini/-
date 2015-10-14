@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageview;
 @property (weak, nonatomic) IBOutlet UILabel *name;
 @property (weak, nonatomic) IBOutlet UILabel *age;
+@property (weak, nonatomic) IBOutlet UISwitch *shoucangswitch;
 @property (weak, nonatomic) IBOutlet UILabel *juli;
 @property (weak, nonatomic) IBOutlet UITextView *qianming;
 @property (weak, nonatomic) IBOutlet UILabel *phone;
@@ -69,5 +70,15 @@
 - (void)close
 {
     [MBProgressHUD hideHUD];
+}
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:YES];
+    if (self.shoucangswitch.on) {
+        if ([self.delegate respondsToSelector:@selector(shoucangswitchonwithphonenumber:)]) {
+            [self.delegate shoucangswitchonwithphonenumber:self.dict[@"phone"]];
+        }
+        
+    }
 }
 @end

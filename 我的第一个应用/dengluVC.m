@@ -12,6 +12,7 @@
 #import "xiugaimimaVC.h"
 #import "chongzhimimaVC.h"
 #import "chongzimimaVC1.h"
+#import "UIImageView+WebCache.h"
 
 @interface dengluVC ()<UIActionSheetDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *username;
@@ -30,16 +31,62 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title = @"个人中心";
     AVUser *user = [AVUser currentUser];
+//    AVUser *user1 = [AVUser objectWithoutDataWithObjectId:user.objectId];
+//    NSDictionary *dict = (NSDictionary *)user1;
+//    NSLog(@"%@\n%@", dict, user);
+#pragma user类有权限设置，要改一下
+ 
+    
+//    AVObject *obj = [AVObject objectWithClassName:@"xixi"];
+//    [obj setObject:@"liuxiang" forKey:@"hehe"];
+//    [obj saveInBackground];
+    
     self.username.text = user.username;
     self.phone.text = user.mobilePhoneNumber;
     self.youxiang.text = user.email;
     self.progressview.hidden = YES;
-#warning 卡住了，明天接着写
-    AVFile *file = user[@"localData"][@"touxiang"];
-    NSData *data = file.getData;
-    UIImage *Image = [UIImage imageWithData:data];
-    self.imageview.image = Image;
+
+    
+ 
+    
+    [self setupimageview];
+ 
+    
+}
+
+
+- (void)setupimageview
+{
+    AVUser *user = [AVUser currentUser];
+    if (!user)return;
+    AVQuery *query = [AVQuery queryWithClassName:@"_User"];
+    [query whereKey:@"username" equalTo:user.username];
+    //    [query whereKeyExists:@"name"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            // 检索成功
+            NSLog(@"检索成功");
+            AVUser *user = [objects lastObject];
+            AVFile *file = user[@"touxiang"];
+            
+//            NSString *str = user[@"touxiang"][@"url"];
+            if (file.url) {
+                [self.imageview sd_setImageWithURL:[NSURL URLWithString:file.url]];
+            }
+//            if (file) {
+//                NSData *data = file.getData;
+//                UIImage *Image = [UIImage imageWithData:data];
+//                self.imageview.image = Image;
+//            }
+            
+        } else {
+            // 输出错误信息
+            NSLog(@"检索失败");
+        }
+    }];
+    
 }
 
 
@@ -73,6 +120,7 @@
             self.username.text = user.username;
             self.phone.text = user.mobilePhoneNumber;
             self.youxiang.text = user.email;
+        self.imageview.image = nil;
     }
 }
 
@@ -120,30 +168,19 @@
         UIImage* image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
         self.imageview.image = image;
         NSData *data;
-        if (UIImagePNGRepresentation(image) == nil)
+#warning 不知道返回的图片的扩展名。。。。。搜也搜不到
+        if (UIImagePNGRepresentation(image))
         {
+            AVUser *user = [AVUser currentUser];
             data = UIImageJPEGRepresentation(image, 1.0);
-            AVFile *file = [AVFile fileWithName:@"1.jpg" data:data];
-            [user addObject:file forKey:@"touxiang"];
-            [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                
-            } progressBlock:^(NSInteger percentDone) {
-               [self.progressview setProgress:percentDone animated:YES];
-                [MBProgressHUD showSuccess:@"图片上传成功"];
-            }];
-            [user saveInBackground];
-            [AVUser currentUser];
+            AVFile *file = [AVFile fileWithName:[NSString stringWithFormat:@"%@.jpg", user.username] data:data];
             
+            [user setObject:file forKey:@"touxiang"];
             
-        }
-        else
-        {
-            data = UIImagePNGRepresentation(image);
-            AVFile *file = [AVFile fileWithName:@"1.png" data:data];
-            [user addObject:file forKey:@"touxiang"];
-//            [file saveInBackground];
-             [user saveInBackground];
-            [AVUser currentUser];
+            [user setObject:@"liuxiang" forKey:@"haoleng"];
+            
+
+            
             [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 
             } progressBlock:^(NSInteger percentDone) {
@@ -153,6 +190,41 @@
                     [MBProgressHUD showSuccess:@"图片上传成功"];
                 }
             }];
+            [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if (error) {
+                    NSLog(@"保存失败");
+                }
+            }];
+
+            
+        }
+        else
+        {
+            AVUser *user = [AVUser currentUser];
+            data = UIImagePNGRepresentation(image);
+            AVFile *file = [AVFile fileWithName:[NSString stringWithFormat:@"%@.png", user.username] data:data];
+            
+            
+            [user setObject:file forKey:@"touxiang"];
+
+            
+            
+            [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                
+            } progressBlock:^(NSInteger percentDone) {
+                [self.progressview setProgress:percentDone animated:YES];
+                if (percentDone == 100) {
+                    self.progressview.hidden = YES;
+                    [MBProgressHUD showSuccess:@"图片上传成功"];
+                }
+            }];
+            [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if (error) {
+                    NSLog(@"保存失败");
+                }
+            }];
+
+        
         }
         
         

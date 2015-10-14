@@ -12,7 +12,7 @@
 #import "meizicell.h"
 #import "MJRefresh.h"
 #import "MBProgressHUD+MJ.h"
-@interface zhouweimeizi ()
+@interface zhouweimeizi ()<xiangxiVCdelegate>
 @property (strong, nonatomic) NSMutableArray *datas;
 @property (strong, nonatomic) NSMutableArray *meizis;
 @property (strong, nonatomic) NSMutableArray *dicts;
@@ -161,8 +161,9 @@
 - (void)cellchoose
 {
     xiangxiVC *vc = [[xiangxiVC alloc] init];
+    vc.delegate = self;
     vc.dict = [self.dicts lastObject];
-    NSLog(@"%@", [self.dicts lastObject]);
+//    NSLog(@"%@", [self.dicts lastObject]);
     [self.navigationController pushViewController:vc animated:YES];
 }
 

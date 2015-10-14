@@ -26,7 +26,7 @@
     mapView.showMapScaleBar = YES;
     mapView.zoomLevel = 17;
     mapView.showsUserLocation = YES;
-    [mapView setCenterCoordinate:coordinate animated:YES];
+//    [mapView setCenterCoordinate:coordinate animated:YES];
     mapView.userTrackingMode = BMKUserTrackingModeFollow;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
     tap.numberOfTapsRequired = 2;

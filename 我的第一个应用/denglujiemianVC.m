@@ -9,6 +9,7 @@
 #import "denglujiemianVC.h"
 #import "MBProgressHUD+MJ.h"
 #import <AVOSCloud/AVOSCloud.h>
+#import "chongzhimimaVC.h"
 @interface denglujiemianVC ()
 @property (weak, nonatomic) IBOutlet UITextField *username;
 @property (weak, nonatomic) IBOutlet UITextField *mima;
@@ -23,6 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title = @"登陆界面";
     
     
 }
@@ -53,6 +55,9 @@
 
 - (IBAction)wangjimima {
     
+    chongzhimimaVC *ch = [[chongzhimimaVC alloc] init];
+    
+    [self.navigationController pushViewController:ch animated:YES];
 }
 
 - (IBAction)denglu {

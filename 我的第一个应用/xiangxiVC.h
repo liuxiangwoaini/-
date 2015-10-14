@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol xiangxiVCdelegate <NSObject>
+
+@optional
+- (void)shoucangswitchonwithphonenumber:(NSString*)num;
+
+@end
+
 @interface xiangxiVC : UIViewController
 @property (nonatomic ,strong) NSDictionary *dict;
+@property (nonatomic, weak) id<xiangxiVCdelegate> delegate;
 @end
