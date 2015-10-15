@@ -13,6 +13,7 @@
 #import "chongzhimimaVC.h"
 #import "chongzimimaVC1.h"
 #import "UIImageView+WebCache.h"
+#import "shoucangmeiziVC.h"
 
 @interface dengluVC ()<UIActionSheetDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *username;
@@ -20,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageview;
 @property (weak, nonatomic) IBOutlet UIProgressView *progressview;
 - (IBAction)xiugaimima;
+- (IBAction)myshoucang;
 - (IBAction)chongzhimima;
 @property (weak, nonatomic) IBOutlet UILabel *youxiang;
 - (IBAction)zhuxiao;
@@ -241,6 +243,21 @@
         xiugaimimaVC *xiu  = [[xiugaimimaVC alloc] init];
         [self.navigationController pushViewController:xiu animated:YES];
     }
+}
+
+- (IBAction)myshoucang {
+    AVUser *user = [AVUser currentUser];
+    if (!user) {
+        [MBProgressHUD showError:@"没有登陆。。。。"];
+        return;
+    }
+    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *fullpath = [path stringByAppendingPathComponent:@"shoucang.plist"];
+    NSMutableArray *shoucang = [NSMutableArray arrayWithContentsOfFile:fullpath];
+    shoucangmeiziVC *VC = [[shoucangmeiziVC alloc] init];
+    VC.phonelist = shoucang;
+    [self.navigationController pushViewController:VC animated:YES];
+    
 }
 
 - (IBAction)chongzhimima {

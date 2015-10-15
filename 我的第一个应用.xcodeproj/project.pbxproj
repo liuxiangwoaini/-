@@ -54,6 +54,11 @@
 		229A25111BCCDF80001CADA9 /* AVOSCloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229A25101BCCDF80001CADA9 /* AVOSCloud.framework */; };
 		229A25151BCCE5BD001CADA9 /* dengluVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A25131BCCE5BD001CADA9 /* dengluVC.m */; };
 		229A25161BCCE5BD001CADA9 /* dengluVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 229A25141BCCE5BD001CADA9 /* dengluVC.xib */; };
+		229C2D261BCE7290002B8842 /* shoucangmeiziVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 229C2D251BCE7290002B8842 /* shoucangmeiziVC.m */; };
+		229C2D2A1BCE72AA002B8842 /* shoucangmeiziCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 229C2D281BCE72AA002B8842 /* shoucangmeiziCell.m */; };
+		229C2D2B1BCE72AA002B8842 /* shoucangmeiziCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 229C2D291BCE72AA002B8842 /* shoucangmeiziCell.xib */; };
+		229C2D2F1BCE7E02002B8842 /* shoucangxiangxiVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 229C2D2D1BCE7E02002B8842 /* shoucangxiangxiVC.m */; };
+		229C2D301BCE7E02002B8842 /* shoucangxiangxiVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 229C2D2E1BCE7E02002B8842 /* shoucangxiangxiVC.xib */; };
 		229C338F1BC4AFE0009C63B5 /* area.plist in Resources */ = {isa = PBXBuildFile; fileRef = 229C338E1BC4AFE0009C63B5 /* area.plist */; };
 		229C33911BC4E9CA009C63B5 /* citydict.plist in Resources */ = {isa = PBXBuildFile; fileRef = 229C33901BC4E9CA009C63B5 /* citydict.plist */; };
 		229C33941BC4EB14009C63B5 /* citychoose.m in Sources */ = {isa = PBXBuildFile; fileRef = 229C33931BC4EB14009C63B5 /* citychoose.m */; };
@@ -222,6 +227,14 @@
 		229A25121BCCE5BD001CADA9 /* dengluVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dengluVC.h; sourceTree = "<group>"; };
 		229A25131BCCE5BD001CADA9 /* dengluVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dengluVC.m; sourceTree = "<group>"; };
 		229A25141BCCE5BD001CADA9 /* dengluVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = dengluVC.xib; sourceTree = "<group>"; };
+		229C2D241BCE7290002B8842 /* shoucangmeiziVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shoucangmeiziVC.h; sourceTree = "<group>"; };
+		229C2D251BCE7290002B8842 /* shoucangmeiziVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = shoucangmeiziVC.m; sourceTree = "<group>"; };
+		229C2D271BCE72AA002B8842 /* shoucangmeiziCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shoucangmeiziCell.h; sourceTree = "<group>"; };
+		229C2D281BCE72AA002B8842 /* shoucangmeiziCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = shoucangmeiziCell.m; sourceTree = "<group>"; };
+		229C2D291BCE72AA002B8842 /* shoucangmeiziCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = shoucangmeiziCell.xib; sourceTree = "<group>"; };
+		229C2D2C1BCE7E02002B8842 /* shoucangxiangxiVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shoucangxiangxiVC.h; sourceTree = "<group>"; };
+		229C2D2D1BCE7E02002B8842 /* shoucangxiangxiVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = shoucangxiangxiVC.m; sourceTree = "<group>"; };
+		229C2D2E1BCE7E02002B8842 /* shoucangxiangxiVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = shoucangxiangxiVC.xib; sourceTree = "<group>"; };
 		229C338E1BC4AFE0009C63B5 /* area.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = area.plist; sourceTree = "<group>"; };
 		229C33901BC4E9CA009C63B5 /* citydict.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = citydict.plist; sourceTree = "<group>"; };
 		229C33921BC4EB14009C63B5 /* citychoose.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = citychoose.h; sourceTree = "<group>"; };
@@ -793,6 +806,14 @@
 				22FC26A61BCD2AF200865D91 /* liulanqiVC.h */,
 				22FC26A71BCD2AF200865D91 /* liulanqiVC.m */,
 				22FC26A81BCD2AF200865D91 /* liulanqiVC.xib */,
+				229C2D241BCE7290002B8842 /* shoucangmeiziVC.h */,
+				229C2D251BCE7290002B8842 /* shoucangmeiziVC.m */,
+				229C2D271BCE72AA002B8842 /* shoucangmeiziCell.h */,
+				229C2D281BCE72AA002B8842 /* shoucangmeiziCell.m */,
+				229C2D291BCE72AA002B8842 /* shoucangmeiziCell.xib */,
+				229C2D2C1BCE7E02002B8842 /* shoucangxiangxiVC.h */,
+				229C2D2D1BCE7E02002B8842 /* shoucangxiangxiVC.m */,
+				229C2D2E1BCE7E02002B8842 /* shoucangxiangxiVC.xib */,
 			);
 			name = "用户模块";
 			sourceTree = "<group>";
@@ -917,6 +938,7 @@
 				2259E61D1BC530520079B9C4 /* 5.plist in Resources */,
 				2259E6201BC530520079B9C4 /* 8.plist in Resources */,
 				2259E6181BC530520079B9C4 /* 1.plist in Resources */,
+				229C2D301BCE7E02002B8842 /* shoucangxiangxiVC.xib in Resources */,
 				22A9ABA91BC7C84000785333 /* userzhuceVC.xib in Resources */,
 				22A11F2E1BC0B2A200A29A34 /* Main.storyboard in Resources */,
 				2259E6211BC530520079B9C4 /* 9.plist in Resources */,
@@ -936,6 +958,7 @@
 				229A25161BCCE5BD001CADA9 /* dengluVC.xib in Resources */,
 				22FC26A51BCD19CB00865D91 /* chongzimimaVC1.xib in Resources */,
 				229C338F1BC4AFE0009C63B5 /* area.plist in Resources */,
+				229C2D2B1BCE72AA002B8842 /* shoucangmeiziCell.xib in Resources */,
 				2259E6191BC530520079B9C4 /* 10.plist in Resources */,
 				22A63B141BC10B9C00D410D8 /* MJRefresh.bundle in Resources */,
 				2259E6071BC508350079B9C4 /* xiangxiVC.xib in Resources */,
@@ -994,14 +1017,17 @@
 				221038F81BC22B9400E552CD /* shortdatouzhenmodel.m in Sources */,
 				22FC26A41BCD19CB00865D91 /* chongzimimaVC1.m in Sources */,
 				22A63B721BC1274100D410D8 /* SDWebImageCompat.m in Sources */,
+				229C2D2F1BCE7E02002B8842 /* shoucangxiangxiVC.m in Sources */,
 				221038F21BC22B6900E552CD /* longdatouzhenview.m in Sources */,
 				22A63B181BC10B9C00D410D8 /* UIView+MJExtension.m in Sources */,
 				22A63B091BC10B9C00D410D8 /* MJRefreshFooter.m in Sources */,
 				22A63B0A1BC10B9C00D410D8 /* MJRefreshHeader.m in Sources */,
 				220E883C1BB8F26600D89899 /* ViewController.m in Sources */,
 				22A63B751BC1274100D410D8 /* SDWebImageDownloaderOperation.m in Sources */,
+				229C2D261BCE7290002B8842 /* shoucangmeiziVC.m in Sources */,
 				22A63B0C1BC10B9C00D410D8 /* MJRefreshAutoNormalFooter.m in Sources */,
 				220E88391BB8F26600D89899 /* AppDelegate.mm in Sources */,
+				229C2D2A1BCE72AA002B8842 /* shoucangmeiziCell.m in Sources */,
 				220E88361BB8F26600D89899 /* main.m in Sources */,
 				22A63B151BC10B9C00D410D8 /* MJRefreshConst.m in Sources */,
 				22A522511BB921B0008366D7 /* TableViewCell.m in Sources */,

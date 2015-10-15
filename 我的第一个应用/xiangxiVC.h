@@ -11,7 +11,7 @@
 @protocol xiangxiVCdelegate <NSObject>
 
 @optional
-- (void)shoucangswitchonwithphonenumber:(NSString*)num;
+- (void)shoucangswitchonwithphonenumber:(NSDictionary*)dict1;
 
 @end
 

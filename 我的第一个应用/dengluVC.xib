@@ -101,6 +101,16 @@
                     <rect key="frame" x="89" y="102" width="142" height="130"/>
                     <color key="backgroundColor" red="0.36303975310493231" green="0.6453792872405999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ooz-jf-b6v">
+                    <rect key="frame" x="36" y="438" width="64" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <state key="normal" title="我的收藏">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="myshoucang" destination="-1" eventType="touchUpInside" id="iIy-gO-dR7"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.34450580559999999" green="1" blue="0.6919211153" alpha="1" colorSpace="calibratedRGB"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics"/>

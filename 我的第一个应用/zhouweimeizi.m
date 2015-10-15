@@ -16,10 +16,17 @@
 @property (strong, nonatomic) NSMutableArray *datas;
 @property (strong, nonatomic) NSMutableArray *meizis;
 @property (strong, nonatomic) NSMutableArray *dicts;
+@property (strong, nonatomic) NSMutableArray *shoucang;
 @end
 
 @implementation zhouweimeizi
-
+- (NSMutableArray *)shoucang
+{
+    if (_shoucang == nil) {
+        _shoucang = [NSMutableArray array];
+    }
+    return _shoucang;
+}
 
 - (NSMutableArray *)meizis
 {
@@ -53,6 +60,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.rowHeight = 80;
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 100)];
+    view.backgroundColor = [UIColor greenColor];
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [btn setTitle:@"回到首页" forState:UIControlStateNormal];
+    [btn setTitle:@"回到首页" forState:UIControlStateHighlighted];
+    [btn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    btn.titleLabel.font= [UIFont systemFontOfSize:15];
+    [btn addTarget:self action:@selector(huidaoshouye) forControlEvents:UIControlEventTouchUpInside];
+    btn.frame = CGRectMake(0, 0, 80, 150);
+    
+    [view addSubview:btn];
+    self.tableView.tableHeaderView = view;
+    
     MJRefreshGifHeader *header = [MJRefreshGifHeader headerWithRefreshingBlock:^{
         [MBProgressHUD showMessage:@"正在刷新周围的妹子。。。。"];
         
@@ -83,6 +103,10 @@
     
     
 
+}
+- (void)huidaoshouye
+{
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 
@@ -165,6 +189,34 @@
     vc.dict = [self.dicts lastObject];
 //    NSLog(@"%@", [self.dicts lastObject]);
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)shoucangswitchonwithphonenumber:(NSDictionary *)dict1
+{
+    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *fullpath = [path stringByAppendingPathComponent:@"shoucang.plist"];
+    
+    
+    
+    NSFileManager *manage  = [NSFileManager defaultManager];
+    
+    if (![manage fileExistsAtPath:fullpath]) {
+        [self.shoucang writeToFile:fullpath atomically:YES];
+        
+    }else
+    {
+        NSMutableArray *temp = [NSMutableArray arrayWithContentsOfFile:fullpath];
+        [temp addObject:dict1];
+        [temp writeToFile:fullpath atomically:YES];
+        
+  
+        
+    }
+}
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:YES];
+
 }
 
 
