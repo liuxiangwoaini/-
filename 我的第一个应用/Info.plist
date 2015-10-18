@@ -30,8 +30,6 @@
 	<string>开定位啊，不开怎么玩</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<true/>
-	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
