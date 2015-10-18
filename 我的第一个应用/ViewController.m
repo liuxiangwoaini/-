@@ -24,6 +24,7 @@
 #import "dengluVC.h"
 #import "xuanzeVC.h"
 #import "liulanqiVC.h"
+#import <AVOSCloud/AVOSCloud.h>
 @interface ViewController ()<chooseVcdelegate, UITextFieldDelegate>
 - (IBAction)btnclick:(id)sender;
 //- (IBAction)pushtopageVC;
@@ -63,6 +64,12 @@
     
     [super viewDidLoad];
 
+     [MBProgressHUD hideHUD];
+    AVUser *user = [AVUser currentUser];
+    if (user) {
+        self.navigationItem.title = user.username;
+        
+    }
     self.serchcity.text = @"beijing";
 //    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
 //    [btn setBackgroundImage:[UIImage imageNamed:@"country-field"] forState:UIControlStateNormal];
@@ -91,10 +98,10 @@
 }
 - (void)daorutupian
 {
-    UIImage *ima1 = [UIImage imageNamed:@"2.jpg"];
-    UIImage *ima2 = [UIImage imageNamed:@"3.jpg"];
-    UIImageWriteToSavedPhotosAlbum(ima1, nil, nil, nil);
-     UIImageWriteToSavedPhotosAlbum(ima2, nil, nil, nil);
+//    UIImage *ima1 = [UIImage imageNamed:@"2.jpg"];
+//    UIImage *ima2 = [UIImage imageNamed:@"3.jpg"];
+//    UIImageWriteToSavedPhotosAlbum(ima1, nil, nil, nil);
+//     UIImageWriteToSavedPhotosAlbum(ima2, nil, nil, nil);
 }
 
 - (void)yonghu

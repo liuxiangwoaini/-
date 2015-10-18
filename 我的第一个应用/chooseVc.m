@@ -598,8 +598,9 @@
                 [MBProgressHUD showMessage:@"定位完成，正在跳转。。。"];
 //                [NSThread sleepForTimeInterval:2.0];
                 
-                
-                
+                self.lable.text = fullcity;
+                NSLog(@"%@", fullcity);
+                [self.manage stopUpdatingLocation];
                 [self performSelector:@selector(dismiss) withObject:self afterDelay:3];
 //
 ////                [MBProgressHUD hideHUD];

@@ -29,17 +29,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-      UIWebView *web = [[UIWebView alloc] initWithFrame:CGRectZero];
+    self.navigationItem.title =self.dict[@"name"];
+    UIWebView *web = [[UIWebView alloc] initWithFrame:CGRectZero];
     UIView *view = [[UIView alloc] initWithFrame:self.view.bounds];
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     [btn setTitle:@"保存" forState:UIControlStateNormal];
     [btn setTitle:@"保存" forState:UIControlStateHighlighted];
-//    [btn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     btn.titleLabel.font= [UIFont systemFontOfSize:15];
+    btn.backgroundColor= [UIColor blueColor];
     [btn addTarget:self action:@selector(baocuntupia) forControlEvents:UIControlEventTouchUpInside];
-    btn.frame = CGRectMake(0, 0, 100, 100);
+    btn.frame = CGRectMake(0, 410, 70, 80);
     
-    [view addSubview:btn];
+    [view addSubview:btn];\
     view.backgroundColor = [UIColor greenColor];
     
     view.hidden = YES;
@@ -60,8 +62,9 @@
 {
 #warning 明天接着写
     UIImage *image = self.imageview.image;
-    UIImageWriteToSavedPhotosAlbum(image, self, @selector(did), <#void *contextInfo#>)
-    
+    UIImageWriteToSavedPhotosAlbum(image, self, nil,nil);
+    [MBProgressHUD showMessage:@"我也不晓得有没有保存成功"];
+    [self performSelector:@selector(close) withObject:nil afterDelay:3];
     
 }
 - (void)dianjiview:(UITapGestureRecognizer *)ges
@@ -70,7 +73,7 @@
     if (self.open) {
         self.backview.hidden = NO;
         [UIView animateWithDuration:0.5 animations:^{
-            self.imageview.frame = CGRectMake(0, 100, 320, 320);
+            self.imageview.frame = CGRectMake(0, 100, 320, 300);
             
         }];
         
@@ -124,6 +127,9 @@
         [MBProgressHUD showMessage:@"然而并没有什么卵用"];
         [self performSelector:@selector(close) withObject:self afterDelay:3];
         
+    }else
+    {
+        self.shoucangswitch.on = YES;
     }
 }
 

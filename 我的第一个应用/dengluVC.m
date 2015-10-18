@@ -51,7 +51,7 @@
     self.progressview.hidden = YES;
 
     
- 
+//   
     
     [self setupimageview];
  
@@ -138,7 +138,6 @@
         return;
     }
         [self.progressview setProgress:0];
-    self.progressview.hidden = NO;
     
         UIImagePickerController *picker = [[UIImagePickerController alloc] init];
         
@@ -147,15 +146,23 @@
         //设置选择后的图片可被编辑
         picker.allowsEditing = YES;
         [self presentViewController:picker animated:YES completion:nil];
+    self.progressview.hidden = NO;
 
     
     //当选择一张图片后进入这里
 
 }
 
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    self.progressview.hidden = YES;
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
 -(void)imagePickerController:(UIImagePickerController*)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 
 {
+    
+
     
     AVUser *user = [AVUser currentUser];
     [picker dismissViewControllerAnimated:YES completion:nil];
@@ -168,6 +175,8 @@
         //先把图片转成NSData
         
         UIImage* image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+//        NSLog(@"%@",image);
+
         self.imageview.image = image;
         NSData *data;
 #warning 不知道返回的图片的扩展名。。。。。搜也搜不到
